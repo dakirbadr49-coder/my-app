@@ -79,7 +79,7 @@ export const products: Product[] = [
     name: "Maintenance mensuelle",
     description:
       "Mises à jour techniques, sauvegardes régulières et petites modifications de contenu pendant un mois. Se renouvelle chaque mois selon tes besoins.",
-    price: 2900,
+    price: 3500,
     category: "Maintenance",
     image: "/products/maintenance-mensuelle.svg",
     featured: true,

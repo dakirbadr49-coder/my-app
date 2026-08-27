@@ -21,6 +21,9 @@ export default function ProductCard({ product }: { product: Product }) {
             dès {formatPrice(product.price)}
           </p>
         </div>
+        <p className="mt-3 inline-flex items-center gap-1 text-sm font-medium text-accent transition-transform group-hover:translate-x-1">
+          En savoir plus →
+        </p>
       </div>
     </Link>
   );
