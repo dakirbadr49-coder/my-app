@@ -1,10 +1,19 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" width="400" height="500">
   <rect width="400" height="500" fill="#15151b"/>
-  <circle cx="200" cy="210" r="140" fill="#34d6ff" opacity="0.14"/>
-  <rect x="140" y="155" width="120" height="110" rx="8" fill="none" stroke="#34d6ff" stroke-width="5"/>
-  <rect x="155" y="175" width="90" height="14" rx="3" fill="none" stroke="#34d6ff" stroke-width="3"/>
-  <rect x="155" y="199" width="90" height="14" rx="3" fill="none" stroke="#34d6ff" stroke-width="3"/>
-  <rect x="155" y="223" width="55" height="14" rx="3" fill="none" stroke="#34d6ff" stroke-width="3"/>
-  <path d="M225 228l7 8 15-18" fill="none" stroke="#34d6ff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="200" cy="240" r="150" fill="#34d6ff" opacity="0.10"/>
+
+  <rect x="40" y="130" width="320" height="230" rx="10" fill="#0b0b0f" stroke="#2a2a35" stroke-width="1.5"/>
+  <rect x="40" y="130" width="320" height="26" rx="10" fill="#1c1c24"/>
+  <circle cx="54" cy="143" r="3" fill="#3a3a46"/>
+  <circle cx="64" cy="143" r="3" fill="#3a3a46"/>
+  <circle cx="74" cy="143" r="3" fill="#3a3a46"/>
+  <rect x="110" y="137" width="200" height="12" rx="6" fill="#26262e"/>
+
+  <rect x="110" y="160" width="180" height="164" rx="8" fill="#1c1c24"/>
+  <rect x="126" y="178" width="148" height="16" rx="4" fill="none" stroke="#34d6ff" stroke-width="2"/>
+  <rect x="126" y="204" width="148" height="16" rx="4" fill="none" stroke="#34d6ff" stroke-width="2"/>
+  <rect x="126" y="230" width="148" height="40" rx="4" fill="none" stroke="#34d6ff" stroke-width="2"/>
+  <rect x="126" y="282" width="70" height="18" rx="9" fill="#34d6ff"/>
+
   <text x="200" y="440" text-anchor="middle" font-family="'Space Grotesk', Arial, sans-serif" font-size="20" fill="#f2f2f6">Formulaire de contact</text>
 </svg>

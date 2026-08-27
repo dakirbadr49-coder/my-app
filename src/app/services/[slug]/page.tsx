@@ -54,7 +54,10 @@ export default async function ServicePage({
             {product.name}
           </h1>
           <p className="mt-4 text-2xl font-medium">
-            {formatPrice(product.price)}
+            dès {formatPrice(product.price)}
+          </p>
+          <p className="mt-1 text-xs text-muted">
+            Tarif pour une demande standard, peut varier selon ton projet.
           </p>
           <p className="mt-6 leading-relaxed text-muted">
             {product.description}

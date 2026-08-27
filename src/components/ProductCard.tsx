@@ -18,7 +18,7 @@ export default function ProductCard({ product }: { product: Product }) {
         <div className="mt-1 flex items-center justify-between gap-2">
           <p className="text-sm text-muted">{product.category}</p>
           <p className="whitespace-nowrap font-medium">
-            {formatPrice(product.price)}
+            dès {formatPrice(product.price)}
           </p>
         </div>
       </div>

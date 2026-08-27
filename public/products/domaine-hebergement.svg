@@ -1,10 +1,22 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" width="400" height="500">
   <rect width="400" height="500" fill="#15151b"/>
-  <circle cx="200" cy="210" r="140" fill="#34d6ff" opacity="0.14"/>
-  <circle cx="200" cy="210" r="55" fill="none" stroke="#34d6ff" stroke-width="5"/>
-  <ellipse cx="200" cy="210" rx="24" ry="55" fill="none" stroke="#34d6ff" stroke-width="3.5"/>
-  <line x1="145" y1="210" x2="255" y2="210" stroke="#34d6ff" stroke-width="3.5"/>
-  <line x1="153" y1="182" x2="247" y2="182" stroke="#34d6ff" stroke-width="3" opacity="0.7"/>
-  <line x1="153" y1="238" x2="247" y2="238" stroke="#34d6ff" stroke-width="3" opacity="0.7"/>
+  <circle cx="200" cy="240" r="150" fill="#34d6ff" opacity="0.10"/>
+
+  <rect x="40" y="130" width="320" height="230" rx="10" fill="#0b0b0f" stroke="#2a2a35" stroke-width="1.5"/>
+  <rect x="40" y="130" width="320" height="26" rx="10" fill="#1c1c24"/>
+  <circle cx="54" cy="143" r="3" fill="#3a3a46"/>
+  <circle cx="64" cy="143" r="3" fill="#3a3a46"/>
+  <circle cx="74" cy="143" r="3" fill="#3a3a46"/>
+
+  <rect x="70" y="134" width="220" height="18" rx="9" fill="#0b0b0f" stroke="#34d6ff" stroke-width="1.6"/>
+  <rect x="82" y="140" width="8" height="8" rx="1.5" fill="none" stroke="#34d6ff" stroke-width="1.4"/>
+  <rect x="98" y="140" width="70" height="6" rx="2" fill="#8b8b9a"/>
+
+  <circle cx="200" cy="250" r="55" fill="none" stroke="#34d6ff" stroke-width="2.4"/>
+  <ellipse cx="200" cy="250" rx="20" ry="55" fill="none" stroke="#34d6ff" stroke-width="1.8"/>
+  <line x1="145" y1="250" x2="255" y2="250" stroke="#34d6ff" stroke-width="1.8"/>
+  <line x1="153" y1="222" x2="247" y2="222" stroke="#34d6ff" stroke-width="1.4" opacity="0.7"/>
+  <line x1="153" y1="278" x2="247" y2="278" stroke="#34d6ff" stroke-width="1.4" opacity="0.7"/>
+
   <text x="200" y="440" text-anchor="middle" font-family="'Space Grotesk', Arial, sans-serif" font-size="17" fill="#f2f2f6">Domaine + h&#233;bergement</text>
 </svg>

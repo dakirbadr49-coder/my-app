@@ -14,6 +14,10 @@ export default function ServicesPage() {
         Choisis les services dont tu as besoin et compose ton projet à la
         carte.
       </p>
+      <p className="mt-2 max-w-xl text-sm text-muted">
+        Tarifs indicatifs pour une demande standard : le prix final peut
+        varier selon la complexité de ton projet.
+      </p>
 
       <div className="mt-10">
         <ProductGrid products={products} categories={categories} />

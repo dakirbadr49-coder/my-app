@@ -17,12 +17,7 @@ export type Product = {
   featured?: boolean;
 };
 
-export const categories = [
-  "Sites",
-  "Fonctionnalités",
-  "Référencement",
-  "Maintenance",
-] as const;
+export const categories = ["Sites", "Fonctionnalités", "Maintenance"] as const;
 
 export const products: Product[] = [
   {
@@ -62,7 +57,7 @@ export const products: Product[] = [
     name: "Boutique en ligne (jusqu'à 20 produits)",
     description:
       "Panier et paiement par carte bancaire intégrés à ton site, pour vendre jusqu'à 20 produits. Gestion des produits simple, sans base de données à administrer.",
-    price: 39900,
+    price: 28900,
     category: "Fonctionnalités",
     image: "/products/boutique-en-ligne.svg",
     featured: true,
@@ -73,20 +68,9 @@ export const products: Product[] = [
     name: "Prise de rendez-vous en ligne",
     description:
       "Calendrier de réservation intégré à ton site : tes clients choisissent un créneau disponible et reçoivent une confirmation automatique par e-mail.",
-    price: 7900,
+    price: 22900,
     category: "Fonctionnalités",
     image: "/products/prise-de-rendez-vous.svg",
-    featured: true,
-  },
-  {
-    id: "6",
-    slug: "seo-de-base",
-    name: "Référencement SEO de base",
-    description:
-      "Optimisation on-page pour être mieux trouvé sur Google : titres, méta-descriptions, structure des pages, vitesse de chargement et données structurées.",
-    price: 12900,
-    category: "Référencement",
-    image: "/products/seo-de-base.svg",
     featured: true,
   },
   {
@@ -98,6 +82,7 @@ export const products: Product[] = [
     price: 2900,
     category: "Maintenance",
     image: "/products/maintenance-mensuelle.svg",
+    featured: true,
   },
   {
     id: "8",

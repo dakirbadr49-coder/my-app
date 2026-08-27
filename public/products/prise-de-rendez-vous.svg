@@ -1,12 +1,34 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" width="400" height="500">
   <rect width="400" height="500" fill="#15151b"/>
-  <circle cx="200" cy="210" r="140" fill="#6e5bff" opacity="0.16"/>
-  <rect x="140" y="165" width="120" height="100" rx="8" fill="none" stroke="#6e5bff" stroke-width="5"/>
-  <line x1="140" y1="190" x2="260" y2="190" stroke="#6e5bff" stroke-width="4"/>
-  <line x1="165" y1="152" x2="165" y2="172" stroke="#6e5bff" stroke-width="4"/>
-  <line x1="235" y1="152" x2="235" y2="172" stroke="#6e5bff" stroke-width="4"/>
-  <circle cx="215" cy="228" r="20" fill="#15151b" stroke="#6e5bff" stroke-width="4"/>
-  <line x1="215" y1="228" x2="215" y2="216" stroke="#6e5bff" stroke-width="3"/>
-  <line x1="215" y1="228" x2="224" y2="232" stroke="#6e5bff" stroke-width="3"/>
+  <circle cx="200" cy="240" r="150" fill="#6e5bff" opacity="0.12"/>
+
+  <rect x="40" y="130" width="320" height="230" rx="10" fill="#0b0b0f" stroke="#2a2a35" stroke-width="1.5"/>
+  <rect x="40" y="130" width="320" height="26" rx="10" fill="#1c1c24"/>
+  <circle cx="54" cy="143" r="3" fill="#3a3a46"/>
+  <circle cx="64" cy="143" r="3" fill="#3a3a46"/>
+  <circle cx="74" cy="143" r="3" fill="#3a3a46"/>
+  <rect x="110" y="137" width="200" height="12" rx="6" fill="#26262e"/>
+
+  <rect x="70" y="166" width="184" height="20" rx="4" fill="#1c1c24"/>
+  <rect x="120" y="173" width="84" height="6" rx="3" fill="#8b8b9a"/>
+
+  <g fill="#1c1c24" stroke="#2f2f3a" stroke-width="1">
+    <rect x="70" y="196" width="24" height="20" rx="3"/>
+    <rect x="98" y="196" width="24" height="20" rx="3"/>
+    <rect x="126" y="196" width="24" height="20" rx="3"/>
+    <rect x="182" y="196" width="24" height="20" rx="3"/>
+    <rect x="210" y="196" width="24" height="20" rx="3"/>
+    <rect x="70" y="220" width="24" height="20" rx="3"/>
+    <rect x="98" y="220" width="24" height="20" rx="3"/>
+    <rect x="126" y="220" width="24" height="20" rx="3"/>
+    <rect x="182" y="220" width="24" height="20" rx="3"/>
+    <rect x="210" y="220" width="24" height="20" rx="3"/>
+  </g>
+  <rect x="154" y="196" width="24" height="20" rx="3" fill="#6e5bff"/>
+
+  <circle cx="290" cy="290" r="26" fill="#0b0b0f" stroke="#6e5bff" stroke-width="3"/>
+  <line x1="290" y1="290" x2="290" y2="274" stroke="#6e5bff" stroke-width="3" stroke-linecap="round"/>
+  <line x1="290" y1="290" x2="302" y2="296" stroke="#6e5bff" stroke-width="3" stroke-linecap="round"/>
+
   <text x="200" y="440" text-anchor="middle" font-family="'Space Grotesk', Arial, sans-serif" font-size="18" fill="#f2f2f6">Prise de rendez-vous</text>
 </svg>

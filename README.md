@@ -1,4 +1,4 @@
-# NEXUS — studio web
+# B Network — studio web
 
 Site vitrine + boutique de services vendus à la carte (création de site, fonctionnalités, SEO, maintenance...), construit avec Next.js, TypeScript et Tailwind CSS. Paiement par carte bancaire via Stripe Checkout.
 
@@ -69,4 +69,3 @@ public/products/         icônes des services
 ## Déployer le site
 
 Le plus simple est [Vercel](https://vercel.com) (créé par l'équipe Next.js) : connecte ton dépôt GitHub, ajoute les mêmes variables d'environnement que dans `.env.local`, et le site est en ligne en quelques minutes.
-# my-app
