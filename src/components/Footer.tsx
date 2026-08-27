@@ -32,6 +32,11 @@ export default function Footer() {
                 Contact
               </Link>
             </li>
+            <li>
+              <Link href="/don" className="hover:text-accent">
+                Faire un don
+              </Link>
+            </li>
           </ul>
         </div>
 

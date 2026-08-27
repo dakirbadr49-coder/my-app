@@ -2,12 +2,37 @@ import Link from "next/link";
 import ProductCard from "@/components/ProductCard";
 import { products } from "@/data/products";
 import { siteConfig } from "@/data/site-config";
+import { getTotalDonations } from "@/lib/donations";
+import { formatPrice } from "@/lib/format";
 
-export default function Home() {
+export const revalidate = 60;
+
+export default async function Home() {
   const featured = products.filter((p) => p.featured).slice(0, 4);
+  const totalDonations = await getTotalDonations();
 
   return (
     <div>
+      <Link
+        href="/don"
+        className="block border-b border-border bg-surface px-6 py-3 text-center text-sm transition-colors hover:bg-accent/10"
+      >
+        {totalDonations ? (
+          <>
+            <span className="font-medium text-accent">
+              {formatPrice(totalDonations)}
+            </span>{" "}
+            déjà récoltés pour aider {siteConfig.name} à grandir —{" "}
+            <span className="underline">faire un don</span>
+          </>
+        ) : (
+          <>
+            Aide {siteConfig.name} à grandir —{" "}
+            <span className="underline">faire un don</span>
+          </>
+        )}
+      </Link>
+
       <section className="relative overflow-hidden border-b border-border">
         <div className="bg-grid absolute inset-0 opacity-40" />
         <div className="absolute -top-32 -left-32 h-[28rem] w-[28rem] rounded-full bg-accent/45 blur-3xl" />
