@@ -1,69 +1,105 @@
-import Image from "next/image";
+import Link from "next/link";
+import ProductCard from "@/components/ProductCard";
+import { products } from "@/data/products";
+import { siteConfig } from "@/data/site-config";
 
 export default function Home() {
+  const featured = products.filter((p) => p.featured).slice(0, 4);
+
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert h-5 w-[100px]"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the{" "}
-            <code className="rounded bg-black/[.06] px-1.5 py-0.5 font-mono text-[0.9em] dark:bg-white/[.08]">
-              page.tsx
-            </code>{" "}
-            file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+    <div>
+      <section className="relative overflow-hidden border-b border-border">
+        <div className="bg-grid absolute inset-0 opacity-40" />
+        <div className="absolute -top-32 -left-32 h-[28rem] w-[28rem] rounded-full bg-accent/45 blur-3xl" />
+        <div className="absolute top-40 right-0 h-72 w-72 rounded-full bg-accent2/25 blur-3xl" />
+
+        <div className="relative mx-auto grid max-w-6xl gap-10 px-6 py-24 sm:py-32 lg:grid-cols-2 lg:items-center">
+          <div>
+            <p className="text-sm font-medium tracking-[0.2em] text-accent uppercase">
+              Studio web
+            </p>
+            <h1 className="mt-4 font-serif text-4xl leading-[1.1] sm:text-5xl lg:text-6xl">
+              {siteConfig.tagline}
+            </h1>
+            <p className="mt-6 max-w-md text-lg leading-relaxed text-muted">
+              {siteConfig.description}
+            </p>
+            <div className="mt-8 flex flex-wrap gap-4">
+              <Link
+                href="/services"
+                className="rounded-full bg-accent px-8 py-3.5 text-sm font-medium tracking-wide text-white transition-colors hover:bg-accent-dark"
+              >
+                Voir les services
+              </Link>
+              <Link
+                href="/contact"
+                className="rounded-full border border-border px-8 py-3.5 text-sm font-medium tracking-wide transition-colors hover:border-accent hover:text-accent"
+              >
+                Discuter de mon projet
+              </Link>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-2 gap-4">
+            {products.slice(0, 2).map((p) => (
+              <div
+                key={p.id}
+                className="aspect-[4/5] overflow-hidden rounded-lg border border-border bg-surface"
+              >
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={p.image}
+                  alt={p.name}
+                  className="h-full w-full object-cover"
+                />
+              </div>
+            ))}
+          </div>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+      </section>
+
+      <section className="mx-auto max-w-6xl px-6 py-20">
+        <div className="flex items-end justify-between">
+          <h2 className="font-serif text-3xl">Services populaires</h2>
+          <Link
+            href="/services"
+            className="text-sm font-medium tracking-wide hover:text-accent"
           >
-            <Image
-              className="dark:invert h-[14px] w-4"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={14}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+            Voir tout →
+          </Link>
         </div>
-      </main>
+        <div className="mt-8 grid grid-cols-2 gap-x-6 gap-y-10 lg:grid-cols-4">
+          {featured.map((product) => (
+            <ProductCard key={product.id} product={product} />
+          ))}
+        </div>
+      </section>
+
+      <section className="border-t border-border bg-surface">
+        <div className="mx-auto grid max-w-6xl gap-10 px-6 py-16 sm:grid-cols-3">
+          {[
+            {
+              title: "Paiement sécurisé",
+              text: "Transactions chiffrées et traitées via Stripe, sans engagement caché.",
+            },
+            {
+              title: "Développement sur mesure",
+              text: "Du code propre, rapide et optimisé pour le référencement.",
+            },
+            {
+              title: "Accompagnement direct",
+              text: "Un contact humain à chaque étape, pas de ticket dans le vide.",
+            },
+          ].map((item) => (
+            <div key={item.title}>
+              <h3 className="font-serif text-xl">{item.title}</h3>
+              <p className="mt-2 text-sm leading-relaxed text-muted">
+                {item.text}
+              </p>
+            </div>
+          ))}
+        </div>
+      </section>
     </div>
   );
 }

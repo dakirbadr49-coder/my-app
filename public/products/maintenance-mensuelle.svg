@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" width="400" height="500">
+  <rect width="400" height="500" fill="#15151b"/>
+  <circle cx="200" cy="210" r="140" fill="#6e5bff" opacity="0.16"/>
+  <path d="M175 165a30 30 0 0 1 42 27l35 35-14 14-35-35a30 30 0 0 1-38-31l14 14 10-10z" fill="none" stroke="#6e5bff" stroke-width="5" stroke-linejoin="round"/>
+  <circle cx="248" cy="238" r="5" fill="#6e5bff"/>
+  <text x="200" y="440" text-anchor="middle" font-family="'Space Grotesk', Arial, sans-serif" font-size="20" fill="#f2f2f6">Maintenance mensuelle</text>
+</svg>

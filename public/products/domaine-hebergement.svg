@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" width="400" height="500">
+  <rect width="400" height="500" fill="#15151b"/>
+  <circle cx="200" cy="210" r="140" fill="#34d6ff" opacity="0.14"/>
+  <circle cx="200" cy="210" r="55" fill="none" stroke="#34d6ff" stroke-width="5"/>
+  <ellipse cx="200" cy="210" rx="24" ry="55" fill="none" stroke="#34d6ff" stroke-width="3.5"/>
+  <line x1="145" y1="210" x2="255" y2="210" stroke="#34d6ff" stroke-width="3.5"/>
+  <line x1="153" y1="182" x2="247" y2="182" stroke="#34d6ff" stroke-width="3" opacity="0.7"/>
+  <line x1="153" y1="238" x2="247" y2="238" stroke="#34d6ff" stroke-width="3" opacity="0.7"/>
+  <text x="200" y="440" text-anchor="middle" font-family="'Space Grotesk', Arial, sans-serif" font-size="17" fill="#f2f2f6">Domaine + h&#233;bergement</text>
+</svg>

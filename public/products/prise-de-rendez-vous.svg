@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" width="400" height="500">
+  <rect width="400" height="500" fill="#15151b"/>
+  <circle cx="200" cy="210" r="140" fill="#6e5bff" opacity="0.16"/>
+  <rect x="140" y="165" width="120" height="100" rx="8" fill="none" stroke="#6e5bff" stroke-width="5"/>
+  <line x1="140" y1="190" x2="260" y2="190" stroke="#6e5bff" stroke-width="4"/>
+  <line x1="165" y1="152" x2="165" y2="172" stroke="#6e5bff" stroke-width="4"/>
+  <line x1="235" y1="152" x2="235" y2="172" stroke="#6e5bff" stroke-width="4"/>
+  <circle cx="215" cy="228" r="20" fill="#15151b" stroke="#6e5bff" stroke-width="4"/>
+  <line x1="215" y1="228" x2="215" y2="216" stroke="#6e5bff" stroke-width="3"/>
+  <line x1="215" y1="228" x2="224" y2="232" stroke="#6e5bff" stroke-width="3"/>
+  <text x="200" y="440" text-anchor="middle" font-family="'Space Grotesk', Arial, sans-serif" font-size="18" fill="#f2f2f6">Prise de rendez-vous</text>
+</svg>

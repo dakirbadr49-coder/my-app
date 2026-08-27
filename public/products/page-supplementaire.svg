@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" width="400" height="500">
+  <rect width="400" height="500" fill="#15151b"/>
+  <circle cx="200" cy="240" r="150" fill="#6e5bff" opacity="0.12"/>
+
+  <rect x="40" y="130" width="320" height="230" rx="10" fill="#0b0b0f" stroke="#2a2a35" stroke-width="1.5"/>
+  <rect x="40" y="130" width="320" height="26" rx="10" fill="#1c1c24"/>
+  <circle cx="54" cy="143" r="3" fill="#3a3a46"/>
+  <circle cx="64" cy="143" r="3" fill="#3a3a46"/>
+  <circle cx="74" cy="143" r="3" fill="#3a3a46"/>
+  <rect x="110" y="137" width="200" height="12" rx="6" fill="#26262e"/>
+
+  <rect x="56" y="156" width="64" height="184" rx="6" fill="#1c1c24"/>
+  <rect x="68" y="172" width="44" height="8" rx="2" fill="#4a4a56"/>
+  <rect x="68" y="192" width="44" height="8" rx="2" fill="#6e5bff"/>
+  <rect x="68" y="212" width="44" height="8" rx="2" fill="#4a4a56"/>
+  <rect x="68" y="232" width="44" height="8" rx="2" fill="#4a4a56"/>
+
+  <rect x="136" y="172" width="170" height="14" rx="3" fill="#e7e7ee"/>
+  <rect x="136" y="198" width="200" height="6" rx="3" fill="#35353f"/>
+  <rect x="136" y="212" width="190" height="6" rx="3" fill="#35353f"/>
+  <rect x="136" y="226" width="170" height="6" rx="3" fill="#35353f"/>
+  <rect x="136" y="240" width="140" height="6" rx="3" fill="#35353f"/>
+
+  <text x="200" y="440" text-anchor="middle" font-family="'Space Grotesk', Arial, sans-serif" font-size="20" fill="#f2f2f6">Page suppl&#233;mentaire</text>
+</svg>

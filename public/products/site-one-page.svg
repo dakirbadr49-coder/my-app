@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" width="400" height="500">
+  <rect width="400" height="500" fill="#15151b"/>
+  <circle cx="200" cy="240" r="150" fill="#6e5bff" opacity="0.12"/>
+
+  <rect x="40" y="130" width="320" height="230" rx="10" fill="#0b0b0f" stroke="#2a2a35" stroke-width="1.5"/>
+  <rect x="40" y="130" width="320" height="26" rx="10" fill="#1c1c24"/>
+  <circle cx="54" cy="143" r="3" fill="#3a3a46"/>
+  <circle cx="64" cy="143" r="3" fill="#3a3a46"/>
+  <circle cx="74" cy="143" r="3" fill="#3a3a46"/>
+  <rect x="110" y="137" width="200" height="12" rx="6" fill="#26262e"/>
+
+  <rect x="56" y="172" width="16" height="16" rx="3" fill="#6e5bff"/>
+  <rect x="300" y="177" width="14" height="3" rx="1.5" fill="#4a4a56"/>
+  <rect x="322" y="177" width="14" height="3" rx="1.5" fill="#4a4a56"/>
+  <rect x="344" y="177" width="10" height="3" rx="1.5" fill="#4a4a56"/>
+
+  <rect x="56" y="212" width="180" height="12" rx="3" fill="#e7e7ee"/>
+  <rect x="56" y="230" width="130" height="12" rx="3" fill="#e7e7ee"/>
+  <rect x="56" y="252" width="200" height="6" rx="3" fill="#4a4a56"/>
+  <rect x="56" y="270" width="84" height="22" rx="11" fill="#6e5bff"/>
+
+  <text x="200" y="440" text-anchor="middle" font-family="'Space Grotesk', Arial, sans-serif" font-size="22" fill="#f2f2f6">Site One Page</text>
+</svg>

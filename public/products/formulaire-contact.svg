@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" width="400" height="500">
+  <rect width="400" height="500" fill="#15151b"/>
+  <circle cx="200" cy="210" r="140" fill="#34d6ff" opacity="0.14"/>
+  <rect x="140" y="155" width="120" height="110" rx="8" fill="none" stroke="#34d6ff" stroke-width="5"/>
+  <rect x="155" y="175" width="90" height="14" rx="3" fill="none" stroke="#34d6ff" stroke-width="3"/>
+  <rect x="155" y="199" width="90" height="14" rx="3" fill="none" stroke="#34d6ff" stroke-width="3"/>
+  <rect x="155" y="223" width="55" height="14" rx="3" fill="none" stroke="#34d6ff" stroke-width="3"/>
+  <path d="M225 228l7 8 15-18" fill="none" stroke="#34d6ff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="200" y="440" text-anchor="middle" font-family="'Space Grotesk', Arial, sans-serif" font-size="20" fill="#f2f2f6">Formulaire de contact</text>
+</svg>
