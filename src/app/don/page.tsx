@@ -1,6 +1,9 @@
 "use client";
 
 import { useState } from "react";
+import { useLocale } from "@/components/LocaleProvider";
+import { getDictionary } from "@/dictionaries";
+import { siteConfig } from "@/data/site-config";
 
 const presets = [5, 10, 25, 50];
 
@@ -9,6 +12,8 @@ export default function DonPage() {
   const [custom, setCustom] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const { locale } = useLocale();
+  const dict = getDictionary(locale).don;
 
   const selectedAmount = custom ? Number(custom) : amount;
 
@@ -23,13 +28,13 @@ export default function DonPage() {
       });
       const data = await res.json();
       if (!res.ok) {
-        setError(data.error ?? "Une erreur est survenue.");
+        setError(data.error ?? dict.minError);
         setLoading(false);
         return;
       }
       window.location.href = data.url;
     } catch {
-      setError("Impossible de contacter le serveur de paiement.");
+      setError(dict.connectionError);
       setLoading(false);
     }
   }
@@ -37,14 +42,12 @@ export default function DonPage() {
   return (
     <div className="mx-auto max-w-2xl px-6 py-16 text-center">
       <p className="text-sm font-medium tracking-[0.2em] text-accent uppercase">
-        Soutenir le projet
+        {dict.eyebrow}
       </p>
-      <h1 className="mt-4 font-serif text-4xl">Aide B Network à grandir</h1>
-      <p className="mt-4 leading-relaxed text-muted">
-        Les dons nous permettent d&apos;investir dans de nouveaux outils,
-        d&apos;améliorer nos services et de continuer à proposer des tarifs
-        accessibles. Chaque contribution compte, merci !
-      </p>
+      <h1 className="mt-4 font-serif text-4xl">
+        {dict.title.replace("{name}", siteConfig.name)}
+      </h1>
+      <p className="mt-4 leading-relaxed text-muted">{dict.intro}</p>
 
       <div className="mt-10 flex flex-wrap justify-center gap-3">
         {presets.map((p) => (
@@ -68,7 +71,7 @@ export default function DonPage() {
 
       <div className="mt-6 flex items-center justify-center gap-2">
         <label htmlFor="custom-amount" className="text-sm text-muted">
-          Autre montant :
+          {dict.otherAmount}
         </label>
         <input
           id="custom-amount"
@@ -76,7 +79,7 @@ export default function DonPage() {
           min={1}
           value={custom}
           onChange={(e) => setCustom(e.target.value)}
-          placeholder="Ex. 15"
+          placeholder="15"
           className="w-24 rounded-lg border border-border bg-surface px-3 py-2 text-center text-sm outline-none focus:border-accent"
         />
         <span className="text-sm text-muted">€</span>
@@ -91,8 +94,8 @@ export default function DonPage() {
         className="mt-8 rounded-full bg-accent px-10 py-3.5 text-sm font-medium tracking-wide text-white transition-colors hover:bg-accent-dark disabled:opacity-60"
       >
         {loading
-          ? "Redirection…"
-          : `Faire un don de ${selectedAmount || 0} €`}
+          ? dict.redirecting
+          : dict.donateButton.replace("{amount}", String(selectedAmount || 0))}
       </button>
     </div>
   );

@@ -3,8 +3,12 @@ import type { Metadata } from "next";
 import AddToCartButton from "@/components/AddToCartButton";
 import ProductCard from "@/components/ProductCard";
 import { formatPrice } from "@/lib/format";
+import { getLocale } from "@/lib/get-locale";
+import { getDictionary } from "@/dictionaries";
 import {
   getProductBySlug,
+  getProductDescription,
+  getProductName,
   getRelatedProducts,
   products,
 } from "@/data/products";
@@ -32,7 +36,11 @@ export default async function ServicePage({
   const product = getProductBySlug(slug);
   if (!product) notFound();
 
+  const locale = await getLocale();
+  const dict = getDictionary(locale);
   const related = getRelatedProducts(product);
+  const name = getProductName(product, locale);
+  const category = dict.categories[product.category] ?? product.category;
 
   return (
     <div className="mx-auto max-w-6xl px-6 py-16">
@@ -41,40 +49,38 @@ export default async function ServicePage({
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             src={product.image}
-            alt={product.name}
+            alt={name}
             className="h-full w-full object-cover"
           />
         </div>
 
         <div className="lg:sticky lg:top-28 lg:self-start">
           <p className="text-sm font-medium tracking-wide text-accent uppercase">
-            {product.category}
+            {category}
           </p>
-          <h1 className="mt-2 font-serif text-3xl sm:text-4xl">
-            {product.name}
-          </h1>
+          <h1 className="mt-2 font-serif text-3xl sm:text-4xl">{name}</h1>
           <p className="mt-4 text-2xl font-medium">
-            dès {formatPrice(product.price)}
+            {dict.productCard.from} {formatPrice(product.price, locale)}
           </p>
           <p className="mt-1 text-xs text-muted">
-            Tarif pour une demande standard, peut varier selon ton projet.
+            {dict.serviceDetail.priceNote}
           </p>
           <p className="mt-6 leading-relaxed text-muted">
-            {product.description}
+            {getProductDescription(product, locale)}
           </p>
 
           <div className="mt-8">
-            <AddToCartButton productId={product.id} />
+            <AddToCartButton productId={product.id} locale={locale} />
           </div>
         </div>
       </div>
 
       {related.length > 0 && (
         <div className="mt-24">
-          <h2 className="font-serif text-2xl">Services complémentaires</h2>
+          <h2 className="font-serif text-2xl">{dict.serviceDetail.related}</h2>
           <div className="mt-8 grid grid-cols-2 gap-x-6 gap-y-10 lg:grid-cols-4">
             {related.map((p) => (
-              <ProductCard key={p.id} product={p} />
+              <ProductCard key={p.id} product={p} locale={locale} />
             ))}
           </div>
         </div>

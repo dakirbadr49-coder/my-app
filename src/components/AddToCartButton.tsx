@@ -2,11 +2,20 @@
 
 import { useState } from "react";
 import { useCart } from "@/store/cart";
+import { getDictionary } from "@/dictionaries";
+import type { Locale } from "@/lib/i18n";
 
-export default function AddToCartButton({ productId }: { productId: string }) {
+export default function AddToCartButton({
+  productId,
+  locale = "fr",
+}: {
+  productId: string;
+  locale?: Locale;
+}) {
   const addItem = useCart((s) => s.addItem);
   const [quantity, setQuantity] = useState(1);
   const [added, setAdded] = useState(false);
+  const dict = getDictionary(locale).serviceDetail;
 
   return (
     <div className="flex items-center gap-3">
@@ -15,7 +24,7 @@ export default function AddToCartButton({ productId }: { productId: string }) {
           type="button"
           onClick={() => setQuantity((q) => Math.max(1, q - 1))}
           className="flex h-11 w-11 items-center justify-center text-lg"
-          aria-label="Diminuer la quantité"
+          aria-label={dict.decrease}
         >
           −
         </button>
@@ -24,7 +33,7 @@ export default function AddToCartButton({ productId }: { productId: string }) {
           type="button"
           onClick={() => setQuantity((q) => q + 1)}
           className="flex h-11 w-11 items-center justify-center text-lg"
-          aria-label="Augmenter la quantité"
+          aria-label={dict.increase}
         >
           +
         </button>
@@ -40,7 +49,7 @@ export default function AddToCartButton({ productId }: { productId: string }) {
         }}
         className="flex-1 rounded-full bg-accent px-8 py-3.5 text-sm font-medium tracking-wide text-white transition-colors hover:bg-accent-dark"
       >
-        {added ? "Ajouté au panier ✓" : "Ajouter au panier"}
+        {added ? dict.added : dict.addToCart}
       </button>
     </div>
   );

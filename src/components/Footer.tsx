@@ -1,7 +1,12 @@
 import Link from "next/link";
 import { siteConfig } from "@/data/site-config";
+import { getLocale } from "@/lib/get-locale";
+import { getDictionary } from "@/dictionaries";
 
-export default function Footer() {
+export default async function Footer() {
+  const locale = await getLocale();
+  const dict = getDictionary(locale);
+
   return (
     <footer className="border-t border-border bg-surface">
       <div className="mx-auto grid max-w-6xl gap-10 px-6 py-14 sm:grid-cols-3">
@@ -14,27 +19,27 @@ export default function Footer() {
 
         <div>
           <p className="text-sm font-medium tracking-wide uppercase">
-            Studio
+            {dict.footer.studio}
           </p>
           <ul className="mt-3 space-y-2 text-sm text-muted">
             <li>
               <Link href="/services" className="hover:text-accent">
-                Tous les services
+                {dict.footer.allServices}
               </Link>
             </li>
             <li>
               <Link href="/panier" className="hover:text-accent">
-                Mon panier
+                {dict.footer.myCart}
               </Link>
             </li>
             <li>
               <Link href="/contact" className="hover:text-accent">
-                Contact
+                {dict.footer.contact}
               </Link>
             </li>
             <li>
               <Link href="/don" className="hover:text-accent">
-                Faire un don
+                {dict.footer.donate}
               </Link>
             </li>
           </ul>
@@ -42,18 +47,18 @@ export default function Footer() {
 
         <div>
           <p className="text-sm font-medium tracking-wide uppercase">
-            Contact
+            {dict.footer.contactHeading}
           </p>
           <ul className="mt-3 space-y-2 text-sm text-muted">
             <li>{siteConfig.email}</li>
-            <li>Paiement sécurisé par carte bancaire</li>
-            <li>Démarrage du projet sous 48h</li>
+            <li>{dict.footer.securePayment}</li>
+            <li>{dict.footer.projectStart}</li>
           </ul>
         </div>
       </div>
 
       <div className="border-t border-border px-6 py-6 text-center text-xs text-muted">
-        © {new Date().getFullYear()} {siteConfig.name}. Tous droits réservés.
+        © {new Date().getFullYear()} {siteConfig.name}. {dict.footer.rights}
       </div>
     </footer>
   );

@@ -4,6 +4,9 @@ import Link from "next/link";
 import { useState } from "react";
 import { useCart, useCartDetails } from "@/store/cart";
 import { formatPrice } from "@/lib/format";
+import { useLocale } from "@/components/LocaleProvider";
+import { getDictionary } from "@/dictionaries";
+import { getProductName } from "@/data/products";
 
 export default function PanierPage() {
   const { items, subtotal } = useCartDetails();
@@ -11,6 +14,9 @@ export default function PanierPage() {
   const removeItem = useCart((s) => s.removeItem);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const { locale } = useLocale();
+  const fullDict = getDictionary(locale);
+  const dict = fullDict.cart;
 
   async function handleCheckout() {
     setLoading(true);
@@ -28,13 +34,13 @@ export default function PanierPage() {
       });
       const data = await res.json();
       if (!res.ok) {
-        setError(data.error ?? "Une erreur est survenue.");
+        setError(data.error ?? dict.genericError);
         setLoading(false);
         return;
       }
       window.location.href = data.url;
     } catch {
-      setError("Impossible de contacter le serveur de paiement.");
+      setError(dict.connectionError);
       setLoading(false);
     }
   }
@@ -42,15 +48,13 @@ export default function PanierPage() {
   if (items.length === 0) {
     return (
       <div className="mx-auto max-w-3xl px-6 py-24 text-center">
-        <h1 className="font-serif text-3xl">Votre panier est vide</h1>
-        <p className="mt-3 text-muted">
-          Découvrez nos services et ajoutez-en à votre panier.
-        </p>
+        <h1 className="font-serif text-3xl">{dict.emptyTitle}</h1>
+        <p className="mt-3 text-muted">{dict.emptyText}</p>
         <Link
           href="/services"
           className="mt-8 inline-block rounded-full bg-accent px-8 py-3.5 text-sm font-medium tracking-wide text-white transition-colors hover:bg-accent-dark"
         >
-          Voir les services
+          {dict.seeServices}
         </Link>
       </div>
     );
@@ -58,73 +62,78 @@ export default function PanierPage() {
 
   return (
     <div className="mx-auto max-w-4xl px-6 py-16">
-      <h1 className="font-serif text-3xl">Votre panier</h1>
+      <h1 className="font-serif text-3xl">{dict.title}</h1>
 
       <ul className="mt-10 divide-y divide-border">
-        {items.map(({ product, quantity }) => (
-          <li key={product.id} className="flex gap-5 py-6">
-            <div className="h-28 w-24 shrink-0 overflow-hidden rounded-lg border border-border bg-surface">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src={product.image}
-                alt={product.name}
-                className="h-full w-full object-cover"
-              />
-            </div>
-
-            <div className="flex flex-1 flex-col justify-between">
-              <div className="flex justify-between gap-4">
-                <div>
-                  <Link
-                    href={`/services/${product.slug}`}
-                    className="font-serif text-lg hover:text-accent"
-                  >
-                    {product.name}
-                  </Link>
-                  <p className="text-sm text-muted">{product.category}</p>
-                </div>
-                <p className="font-medium whitespace-nowrap">
-                  {formatPrice(product.price * quantity)}
-                </p>
+        {items.map(({ product, quantity }) => {
+          const name = getProductName(product, locale);
+          return (
+            <li key={product.id} className="flex gap-5 py-6">
+              <div className="h-28 w-24 shrink-0 overflow-hidden rounded-lg border border-border bg-surface">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={product.image}
+                  alt={name}
+                  className="h-full w-full object-cover"
+                />
               </div>
 
-              <div className="flex items-center justify-between">
-                <div className="flex items-center rounded-full border border-border">
+              <div className="flex flex-1 flex-col justify-between">
+                <div className="flex justify-between gap-4">
+                  <div>
+                    <Link
+                      href={`/services/${product.slug}`}
+                      className="font-serif text-lg hover:text-accent"
+                    >
+                      {name}
+                    </Link>
+                    <p className="text-sm text-muted">
+                      {fullDict.categories[product.category] ?? product.category}
+                    </p>
+                  </div>
+                  <p className="font-medium whitespace-nowrap">
+                    {formatPrice(product.price * quantity, locale)}
+                  </p>
+                </div>
+
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center rounded-full border border-border">
+                    <button
+                      onClick={() => updateQuantity(product.id, quantity - 1)}
+                      className="flex h-9 w-9 items-center justify-center"
+                      aria-label="-"
+                    >
+                      −
+                    </button>
+                    <span className="w-6 text-center text-sm">{quantity}</span>
+                    <button
+                      onClick={() => updateQuantity(product.id, quantity + 1)}
+                      className="flex h-9 w-9 items-center justify-center"
+                      aria-label="+"
+                    >
+                      +
+                    </button>
+                  </div>
                   <button
-                    onClick={() => updateQuantity(product.id, quantity - 1)}
-                    className="flex h-9 w-9 items-center justify-center"
-                    aria-label="Diminuer la quantité"
+                    onClick={() => removeItem(product.id)}
+                    className="text-sm text-muted hover:text-accent"
                   >
-                    −
-                  </button>
-                  <span className="w-6 text-center text-sm">{quantity}</span>
-                  <button
-                    onClick={() => updateQuantity(product.id, quantity + 1)}
-                    className="flex h-9 w-9 items-center justify-center"
-                    aria-label="Augmenter la quantité"
-                  >
-                    +
+                    {dict.remove}
                   </button>
                 </div>
-                <button
-                  onClick={() => removeItem(product.id)}
-                  className="text-sm text-muted hover:text-accent"
-                >
-                  Retirer
-                </button>
               </div>
-            </div>
-          </li>
-        ))}
+            </li>
+          );
+        })}
       </ul>
 
       <div className="mt-8 flex flex-col items-end gap-6 border-t border-border pt-8">
         <div className="flex w-full max-w-xs justify-between text-lg">
-          <span>Sous-total</span>
-          <span className="font-medium">{formatPrice(subtotal)}</span>
+          <span>{dict.subtotal}</span>
+          <span className="font-medium">{formatPrice(subtotal, locale)}</span>
         </div>
         <p className="w-full max-w-xs text-right text-xs text-muted">
-          Facture envoyée par e-mail après paiement.
+          {dict.invoiceNote}
         </p>
 
         {error && (
@@ -138,7 +147,7 @@ export default function PanierPage() {
           disabled={loading}
           className="w-full max-w-xs rounded-full bg-accent px-8 py-3.5 text-sm font-medium tracking-wide text-white transition-colors hover:bg-accent-dark disabled:opacity-60"
         >
-          {loading ? "Redirection…" : "Passer la commande"}
+          {loading ? dict.redirecting : dict.checkout}
         </button>
       </div>
     </div>

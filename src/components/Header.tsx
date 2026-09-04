@@ -4,17 +4,22 @@ import Link from "next/link";
 import { useState } from "react";
 import { siteConfig } from "@/data/site-config";
 import { useCartDetails } from "@/store/cart";
+import { useLocale } from "./LocaleProvider";
+import { getDictionary } from "@/dictionaries";
 import CartIcon from "./CartIcon";
-
-const links = [
-  { href: "/", label: "Accueil" },
-  { href: "/services", label: "Services" },
-  { href: "/contact", label: "Contact" },
-];
+import LanguageSwitcher from "./LanguageSwitcher";
 
 export default function Header() {
   const { count } = useCartDetails();
   const [open, setOpen] = useState(false);
+  const { locale } = useLocale();
+  const dict = getDictionary(locale);
+
+  const links = [
+    { href: "/", label: dict.header.home },
+    { href: "/services", label: dict.header.services },
+    { href: "/contact", label: dict.header.contact },
+  ];
 
   return (
     <header className="sticky top-0 z-50 border-b border-border bg-background/90 backdrop-blur">
@@ -36,7 +41,8 @@ export default function Header() {
         </nav>
 
         <div className="flex items-center gap-5">
-          <Link href="/panier" className="relative" aria-label="Panier">
+          <LanguageSwitcher />
+          <Link href="/panier" className="relative" aria-label={dict.header.cart}>
             <CartIcon />
             {count > 0 && (
               <span className="absolute -right-2 -top-2 flex h-5 w-5 items-center justify-center rounded-full bg-accent text-[11px] font-medium text-white">
@@ -47,7 +53,7 @@ export default function Header() {
           <button
             className="flex flex-col gap-1.5 md:hidden"
             onClick={() => setOpen((o) => !o)}
-            aria-label="Menu"
+            aria-label={dict.header.menu}
           >
             <span className="h-px w-6 bg-foreground" />
             <span className="h-px w-6 bg-foreground" />
